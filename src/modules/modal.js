@@ -6,6 +6,7 @@ const modal = () => {
     const modalContent = document.querySelector("body > div.popup > div");
     const form = document.querySelector("#form3");
     const mainForm = document.querySelector("body > div.popup > div > div");
+
     console.log(mainForm);
 
     buttons.forEach(btn => {
