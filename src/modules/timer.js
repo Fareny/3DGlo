@@ -26,7 +26,7 @@ const timer = (deadLine => {
         timerMinutes.textContent = returnZero(getTime.minutes);
         timerSeconds.textContent = returnZero(getTime.seconds);
 
-        if (timerHours.textContent <= 0) {
+        if (getTime.hours <= 0 && getTime.minutes <= 0 && getTime.seconds <= 0) {
             clearInterval(inter);
         }
     };
