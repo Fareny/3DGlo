@@ -43,7 +43,7 @@ const modal = () => {
     const animationModal = () => {
 
         countTwo++;
-        idInterval = requestAnimationFrame(animationModal);  //фон
+        idInterval = requestAnimationFrame(animationModal);
         if (countTwo < 1) {
             modal.style.left = countTwo * 20 + 'px';
         } else {
@@ -54,7 +54,7 @@ const modal = () => {
 
     const animationModalContent = () => {
         countOne++;
-        idInterval = requestAnimationFrame(animationModalContent);  //Задник от от формы со строками
+        idInterval = requestAnimationFrame(animationModalContent);
         if (countOne < 19) {
             popupContent.style.top = countOne * 5 + 'px';
         } else {
