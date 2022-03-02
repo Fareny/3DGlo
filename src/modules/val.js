@@ -8,8 +8,6 @@ const val = () => {
     const form2 = document.querySelector("#form2");
     const form1 = document.querySelector("#form1");
 
-
-
     calc.forEach((item) => {
         item.addEventListener('input', (e) => {
             e.target.value = e.target.value.replace(/\D+/, "");
