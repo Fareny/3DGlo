@@ -1,52 +1,43 @@
 const val = () => {
-    const calcItemCalcSquare = document.querySelector('.calc-square');
-    const calcItemCalcDay = document.querySelector(".calc-day");
-    const calcItemCalcCount = document.querySelector(".calc-count");
-
+    const email = document.querySelectorAll('input[type = email]');
+    const phone = document.querySelectorAll('input[type = tel]');
+    const text = document.getElementById('form2-message');
+    const inputsText = document.querySelectorAll('input[type = text]');
+    const calc = document.querySelectorAll('input.calc-item');
     const form3 = document.querySelector("#form3");
     const form2 = document.querySelector("#form2");
     const form1 = document.querySelector("#form1");
 
-    calcItemCalcSquare.type = "number";
-    calcItemCalcDay.type = "number";
-    calcItemCalcCount.type = "number";
 
-    function replacerOne(input) {
-        input.addEventListener('input', (e) => {
-            e.target.value = e.target.value.replace(/d+/, ""); //Калькулятор стоимости
+
+    calc.forEach((item) => {
+        item.addEventListener('input', (e) => {
+            e.target.value = e.target.value.replace(/\D+/, "");
+        });
+    });
+
+    function name(i) {
+        inputsText[i].addEventListener('input', (e) => {
+            e.target.value = e.target.value.replace(/[^\sа-яА-Я-]+/i, "");
         });
     }
-    replacerOne(calcItemCalcSquare);
-    replacerOne(calcItemCalcDay);
-    replacerOne(calcItemCalcCount);
+    name(0); name(4); name(5);
 
-    function replacerTwo(input) {
-        input.addEventListener('input', (e) => {
-            e.target.value = e.target.value.replace(/[^а-яА-ЯёЁ\-,.\s+]/g, '');
-        });
-    }
-    replacerTwo(form2[3]);//Ваше сообщение во 2 форме
-    replacerTwo(form1[0]);
-    replacerTwo(form2[0]);//Имя
-    replacerTwo(form3[0]);
+    text.addEventListener('input', (e) => {
+        e.target.value = e.target.value.replace(/[^\sа-яА-Я-]+/i, "");
+    });
 
-    function email(input) {
-        input.addEventListener('input', (e) => {
-            e.target.value = e.target.value.replace(/[^a-zA-Z\d+_@!~*'.-\s+]/g, ''); //символы для почты
+    email.forEach((item) => {
+        item.addEventListener('input', (e) => {
+            e.target.value = e.target.value.replace(/[^\w@_\-.!~*']+/, "");
         });
-    }
-    email(form2[1]);
-    email(form1[1]); //почта
-    email(form3[2]);
+    });
 
-    function number(input) {
-        input.addEventListener('input', (e) => {
-            e.target.value = e.target.value.replace(/[^0-9()-]/, ''); //символы для номера тел.
+    phone.forEach((item) => {
+        item.addEventListener('input', (e) => {
+            e.target.value = e.target.value.replace(/[^\d()-]+/, "");
         });
-    }
-    number(form2[2]);
-    number(form1[2]);
-    number(form3[1]);
+    });
 
     let regEmail = /^[\w]{1}[\w-\.]*@[\w-]+\.[a-z]{2,4}$/i; //проверка на почту
     let regTelNumber = /^\d[\d\(\)\ -]{4,14}\d$/; //проверка на номер телефона
