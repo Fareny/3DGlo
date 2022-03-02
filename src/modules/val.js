@@ -27,7 +27,6 @@ const val = () => {
         e.target.value = e.target.value.replace(/[^\sа-яА-Я-]+/i, "");
     });
 
-    let regEmail = /^[\w]{1}[\w-\.]*@[\w-]+\.[a-z]{2,4}$/i; //проверка на почту
     email.forEach((item) => {
         item.addEventListener('input', (e) => {
             e.target.value = e.target.value.replace(/[^\w@_\-.!~*']+/, "");
@@ -40,7 +39,7 @@ const val = () => {
         });
     });
 
-    // let regEmail = /^[\w]{1}[\w-\.]*@[\w-]+\.[a-z]{2,4}$/i; //проверка на почту
+    let regEmail = /^[\w]{1}[\w-\.]*@[\w-]+\.[a-z]{2,4}$/i; //проверка на почту
     let regTelNumber = /^\d[\d\(\)\ -]{4,14}\d$/; //проверка на номер телефона
     function check(button, name, email, phone) {
         button.addEventListener('click', (e) => {
