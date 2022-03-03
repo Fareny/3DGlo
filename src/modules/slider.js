@@ -5,7 +5,7 @@ const slider = (portfolioContent, portfolioItem, portfolioDot) => {
 
     if(sliderBlock == null || ''){
         return;
-    } else if(slides == null || ''){
+    } else if(slides == 0){
         return;
     } else {
     const timeInterval = 2000;
