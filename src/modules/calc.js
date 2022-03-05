@@ -31,9 +31,9 @@ const countCalc = () => {
     }
     
 const animateCount = () => {
-    let time = 100;
-    let step = 10;
-    let count = -10;
+    let time = 0.1;
+    let step = 1;
+    let count = -1;
     let setActive;
     let timeInterval = Math.round(time / (totalValue / step));
 
