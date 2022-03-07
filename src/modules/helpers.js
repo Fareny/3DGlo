@@ -56,40 +56,21 @@ const anim = (modal, buttons, popupContent, mainForm) => {
     };
 };
 
+const animateCount = (total, totalValue) => {
+    let count = 0;
+    let totalTick = Math.round(totalValue / 60);
 
-
-
-const animateCount = (totalValue, calcSquare, calcCount, calcDay, calcType, total) => {
-    let time = 0.1;
-    let step = 1;
-    let count = -1;
-    let setActive;
-    let timeInterval = Math.round(time / (totalValue / step));
-
-    let interval = setInterval(() =>{
-        if(calcSquare != 0 && calcCount != 0 && calcDay != 0){
-        count += step;
-        setActive = true;
-
-        if(setActive == true){
-            calcSquare.disabled = true;
-            calcCount.disabled = true;
-            calcDay.disabled = true;
-            calcType.disabled = true;
+    const animationNumber = () => {
+    let interval = requestAnimationFrame(animationNumber);
+        count += totalTick;
+        if(count >= totalValue){
+            cancelAnimationFrame(interval);
+            total.textContent = totalValue;
+        } else {
+        total.textContent = count; 
         }
-
-        if(count == totalValue || totalValue == 0){
-            clearInterval(interval);
-            setActive = false;
-            calcSquare.disabled = false;
-            calcCount.disabled = false;
-            calcDay.disabled = false;
-            calcType.disabled = false;
-        }
-
-        total.textContent = count;
-    }
-    }, timeInterval);
+    };
+    animationNumber();
 };
 
 export {anim, animateCount}; 

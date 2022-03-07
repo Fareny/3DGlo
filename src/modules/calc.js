@@ -31,7 +31,7 @@ const countCalc = () => {
         totalValue = 0;
     }
     
-    animateCount(totalValue, calcSquare, calcCount, calcDay, calcType, total);
+    animateCount(total, totalValue);
 };
 
 calcBlock.addEventListener('change', (e) => {
