@@ -14,7 +14,7 @@ const countCalc = () => {
     let calcCountValue = 1;
     let calcDayValue = 1;
 
-    if(calcCount.value > 1){
+    if (calcCount.value > 1){
         calcCountValue += calcCount.value / 10;
     }
     
@@ -30,66 +30,22 @@ const countCalc = () => {
         totalValue = 0;
     }
     
-const animateCount = () => {
-    let active;
-    let setActive = [calcSquare, calcCount, calcDay, calcType];
-    let count = 0;
-    count = -10;
+    const animateCount = () => {
+        let count = 0;
+        let totalTick = Math.round(totalValue / 60);
 
-    const animationNumber = () => {
-    let interval = requestAnimationFrame(animationNumber);
-        count += 10;
-        active = true;
-
-        if(active == true){
-            setActive.forEach((elem, i) =>{
-                elem.disabled = true;
-            });
-        }
-        if(count >= totalValue){
-            cancelAnimationFrame(interval);
-            setActive.forEach((elem, i) =>{
-                active = false;
-                elem.disabled = false;
-            });
-        }
-        total.textContent = count;
+        const animationNumber = () => {
+        let interval = requestAnimationFrame(animationNumber);
+            count += totalTick;
+            if(count >= totalValue){
+                cancelAnimationFrame(interval);
+                total.textContent = totalValue;
+            } else {
+            total.textContent = count; 
+            }
+        };
+        animationNumber();
     };
-
-    animationNumber();
-
-
-
-
-
-
-
-    // let setActive;
-    // let timeInterval = Math.round(time / (totalValue / step));
-
-        // if(calcSquare != 0 && calcCount != 0 && calcDay != 0){
-        // count += step;
-        // setActive = true;
-
-        // if(setActive == true){
-        //     calcSquare.disabled = true;
-        //     calcCount.disabled = true;
-        //     calcDay.disabled = true;
-        //     calcType.disabled = true;
-        // }
-
-        // if(count == totalValue || totalValue == 0){
-            
-        //     // setActive = false;
-        //     // calcSquare.disabled = false;
-        //     // calcCount.disabled = false;
-        //     // calcDay.disabled = false;
-        //     // calcType.disabled = false;
-        // }
-        
-    // }
-    
-};
     animateCount();
     
 };
@@ -99,6 +55,5 @@ calcBlock.addEventListener('change', (e) => {
         countCalc();
     }
 });
-
 };
 export default calc;
