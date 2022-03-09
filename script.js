@@ -35,6 +35,9 @@ const cars = (data) => {
             textId1.textContent = 'Тачка ' + data.cars[1].brand + ' ' + data.cars[1].model;
             textId2.textContent = 'Цена: ' + data.cars[1].price + '$';
             GetAndSend();
+        } else {
+            textId1.textContent = 'Выберите тачку!';
+            textId2.textContent = '';
         }
     });
 };
